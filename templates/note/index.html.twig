@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Note index{% endblock %}
+
+{% block body %}
+    <h1>Note index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Unite d'enseignement</th>
+                <th>Moyenne</th>
+                <th>valide</th>
+                <th>credit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for note in notes %}
+            <tr>
+                <td>{{ note.nom }}</td>
+                <td>{{ note.design_ue }}</td>
+                <td>{{ note.moyenne}}</td>
+                 <td>
+                    {% if note.moyenne >=10 %}
+                    {{ 'oui' }}
+                    {% else %}
+                    {{ 'non' }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if note.moyenne >=10 %}
+                    {{ note.credit }}
+                    {% else %}
+                    {{ 0 }}
+                    {% endif %}
+                </td>
+                
+                {# <td>{{ note.matiere.ue.designUe }}</td>
+                <td>{{ note.moyenne}}
+                <td>{% if note.moyenne >=10 %}
+                    {{ 'oui' }}
+                    {% else %}
+                    {{ 'non' }}
+                    {% endif %}</td>
+                </td>
+                <td>{% if note.moyenne >=10 %}
+                    {{ note.0.matiere.creditMatiere }}
+                    {% else %}
+                    {{ 0 }}
+                    {% endif %}</td>
+                </td> #}
+                {# <td>{{ note.etudiant }}</td> #}
+                {# <td>
+                    <a href="{{ path('note_show', {'id': note.id}) }}">show</a>
+                    <a href="{{ path('note_edit', {'id': note.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_new') }}">Create new</a>
+{% endblock %}
+

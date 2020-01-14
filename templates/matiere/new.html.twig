@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Matiere{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <h1>new Matiere</h1>
+
+    {{ include('matiere/_form.html.twig') }}
+
+    <a href="{{ path('matiere_index') }}">back to list</a>
+{% endblock %}

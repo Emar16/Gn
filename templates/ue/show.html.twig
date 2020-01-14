@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ue{% endblock %}
+
+{% block body %}
+    <h1>Ue</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ue.id }}</td>
+            </tr>
+            <tr>
+                <th>DesignUe</th>
+                <td>{{ ue.designUe }}</td>
+            </tr>
+            <tr>
+                <th>Credit</th>
+                <td>{{ ue.credit }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('ue_index') }}">back to list</a>
+
+    <a href="{{ path('ue_edit', {'id': ue.id}) }}">edit</a>
+
+    {{ include('ue/_delete_form.html.twig') }}
+{% endblock %}
